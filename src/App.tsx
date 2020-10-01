@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import Player from './core/player';
+import Camera from './core/camera';
+import Scene from './core/scene';
+import CubeBuilder from './core/cubeBuilder';
+import * as THREE from "three";
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    const scene = new Scene().scene;
+    const camera = new Camera().camera;
+    const renderer = new THREE.WebGLRenderer( { antialias: true } );
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    let cubeBuilder = new CubeBuilder();
+    let player = new Player(cubeBuilder);
+    scene.add(player.body);
+
+    const animate = function () {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div></div>
   );
 }
 

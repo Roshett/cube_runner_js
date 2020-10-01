@@ -1,0 +1,1 @@
+export const SPEED_PLAYER = 0.05;
