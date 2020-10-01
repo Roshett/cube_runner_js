@@ -9,20 +9,24 @@ import './App.css';
 function App() {
 
   useEffect(() => {
-    const scene = new Scene().scene;
-    const camera = new Camera().camera;
-    const renderer = new THREE.WebGLRenderer( { antialias: true } );
+    const scene = new Scene();
+    const camera = new Camera();
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
     let cubeBuilder = new CubeBuilder();
-    let player = new Player(cubeBuilder);
+    let player = new Player(cubeBuilder, scene.getSceneItems());
     scene.add(player.body);
+    scene.buildPath(cubeBuilder);
+
 
     const animate = function () {
+      player.move();
+      camera.move(player.getPosition());
+      renderer.render(scene.getScene(), camera.getCamera());
       requestAnimationFrame(animate);
-      renderer.render(scene, camera);
     };
 
     animate();
