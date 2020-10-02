@@ -9,3 +9,5 @@ export const JUMP_POWER = 0.3 * GAME_SPEED;
 export const CAMERA_X = 1.5;
 export const CAMERA_Y = 2.5;
 export const CAMERA_Z = 5;
+
+export const THRESHOLD_TOP_CUBE = 0.8;

@@ -11,25 +11,22 @@ class Scene {
 
     buildPath(cubeBuilder: any) {
         for (let
-            index = 0; index < 10; index++) {
+            index = 0; index < 100; index++) {
+            let cubes = [];
 
             let cube = cubeBuilder.getCube(-index, -1, 0);
-            cube.name = `index-cube-${index}`
-
-            this.sceneItems.push([{ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name }]);
+            cube.name = `index-cube-${index}`;
+            cubes.push({ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name });
             this.add(cube);
-        }
 
-        for (let
-            index = 10; index < 150; index++) {
-
-            if (index % 3 == 0) {
-                let cube = cubeBuilder.getCube(-index, -1, 0);
-                cube.name = `index-cube-${index}`
-
-                this.sceneItems.push([{ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name }]);
-                this.add(cube)
+            if (index % 5 === 0 && index != 0) {
+                cube = cubeBuilder.getCube(-index, 0, 0);
+                cube.name = `index-cube-${index}`;
+                cubes.push({ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name });
+                this.add(cube);
             }
+
+            this.sceneItems.push(cubes);
         }
     };
 

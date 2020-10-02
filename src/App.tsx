@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const scene = new Scene();
-    const camera = new Camera();
+    const camera = new Camera(); 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -21,15 +21,15 @@ function App() {
     scene.add(player.body);
     scene.buildPath(cubeBuilder);
 
-
     const animate = function () {
       player.move();
       camera.move(player.getPosition());
       renderer.render(scene.getScene(), camera.getCamera());
-      requestAnimationFrame(animate);
+      // requestAnimationFrame(animate);
     };
 
-    animate();
+    setInterval(animate, 17);
+    // animate();
   });
 
   return (
