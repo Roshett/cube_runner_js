@@ -11,3 +11,4 @@ export const CAMERA_Y = 2.5;
 export const CAMERA_Z = 5;
 
 export const THRESHOLD_TOP_CUBE = 0.8;
+export const COLORS_PLAYER = ['RED', 'GREEN', 'BLUE', 'YELLOW', 'PURPLE'];

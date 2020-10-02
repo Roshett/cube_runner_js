@@ -11,8 +11,28 @@ class CubeBuilder {
 
         this.colors = {
             WHITE: new THREE.MeshBasicMaterial({
-                map: this.loader.load('http://localhost:3000/img/cube.png'),
-            })
+                map: this.loader.load('http://localhost:3000/img/cube_white.png'),
+            }),
+
+            RED: new THREE.MeshBasicMaterial({
+                map: this.loader.load('http://localhost:3000/img/cube_red.png'),
+            }),
+
+            GREEN: new THREE.MeshBasicMaterial({
+                map: this.loader.load('http://localhost:3000/img/cube_green.png'),
+            }),
+
+            YELLOW: new THREE.MeshBasicMaterial({
+                map: this.loader.load('http://localhost:3000/img/cube_yellow.png'),
+            }),
+
+            PURPLE: new THREE.MeshBasicMaterial({
+                map: this.loader.load('http://localhost:3000/img/cube_purple.png'),
+            }),
+
+            BLUE: new THREE.MeshBasicMaterial({
+                map: this.loader.load('http://localhost:3000/img/cube_blue.png'),
+            }),
         }
 
         this.geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -26,6 +46,10 @@ class CubeBuilder {
         cube.position.z = z;
 
         return cube;
+    };
+
+    getColors() {
+        return this.colors;
     };
 }
 

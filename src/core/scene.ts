@@ -16,13 +16,21 @@ class Scene {
 
             let cube = cubeBuilder.getCube(-index, -1, 0);
             cube.name = `index-cube-${index}`;
-            cubes.push({ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name });
+            cube.x = cube.position.x
+            cube.y = cube.position.y
+            cube.z = cube.position.z
+            cubes.push(cube);
             this.add(cube);
 
             if (index % 5 === 0 && index != 0) {
                 cube = cubeBuilder.getCube(-index, 0, 0);
                 cube.name = `index-cube-${index}`;
-                cubes.push({ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name });
+                cube.x = cube.position.x
+                cube.y = cube.position.y
+                cube.z = cube.position.z
+
+                // cubes.push({ x: cube.position.x, y: cube.position.y, z: cube.position.z, name: cube.name, ...cube});
+                cubes.push(cube);
                 this.add(cube);
             }
 
