@@ -11,7 +11,7 @@ class Scene {
 
     buildPath(cubeBuilder: any) {
         for (let
-            index = 0; index < 100; index++) {
+            index = 0; index < 50; index++) {
             let cubes = [];
 
             let cube = cubeBuilder.getCube(-index, -1, 0);

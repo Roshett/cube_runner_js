@@ -25,11 +25,9 @@ function App() {
       player.move();
       camera.move(player.getPosition());
       renderer.render(scene.getScene(), camera.getCamera());
-      // requestAnimationFrame(animate);
     };
 
     setInterval(animate, 17);
-    // animate();
   });
 
   return (
