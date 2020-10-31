@@ -30,6 +30,11 @@ class Player {
 
         if ((keyCode === 32 || keyCode === 83) && this.groundItem) {
             this.speedMoveY = JUMP_POWER;
+
+            let val = JSON.parse(localStorage.getItem('position') || '[]');
+            val.push(this.groundItem.x)
+            localStorage.setItem('position', JSON.stringify(val));
+
             this.groundItem = undefined;
             this.isJumpEnd = false;
         }
@@ -105,6 +110,7 @@ class Player {
         }
 
         this.body.position.x -= SPEED_PLAYER;
+        return this.body.position.x;
     }
 }
 

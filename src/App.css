@@ -1,3 +1,9 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 20vh;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: .3s;
+}
+
+.song {
+  position: relative;
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.song-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: .2;
+}
+
+.group-name {
+  text-align: center;
+  font-size: 48px;
+}
+
+.song-name {
+  text-align: center;
 }

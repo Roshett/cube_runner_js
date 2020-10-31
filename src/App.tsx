@@ -7,10 +7,22 @@ import * as THREE from "three";
 import './App.css';
 
 function App() {
+  localStorage.setItem('position', JSON.stringify([]));
 
   useEffect(() => {
+
+    setTimeout(() => {
+      let element = document.getElementsByClassName('overlay')[0]
+      element.setAttribute("style", "opacity: 1.0;");
+    }, 1000)
+
+    setTimeout(() => {
+      let element = document.getElementsByClassName('overlay')[0]
+      element.setAttribute("style", "opacity: 0;");
+    }, 5000)
+
     const scene = new Scene();
-    const camera = new Camera(); 
+    const camera = new Camera();
     const renderer = new THREE.WebGLRenderer({ antialias: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -22,7 +34,7 @@ function App() {
     scene.buildPath(cubeBuilder);
 
     const animate = function () {
-      player.move();
+      let pos = player.move();
       camera.move(player.getPosition());
       renderer.render(scene.getScene(), camera.getCamera());
     };
@@ -31,7 +43,18 @@ function App() {
   });
 
   return (
-    <div></div>
+    <div className="overlay">
+      <div className="song">
+        <div className="song-bg"></div>
+        <div className="group-name">
+          NEFFEX
+      </div>
+        <div className="song-name">
+          Rusmors
+      </div>
+
+      </div>
+    </div>
   );
 }
 
