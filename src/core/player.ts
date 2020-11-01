@@ -28,7 +28,7 @@ class Player {
     private onDocumentKeyDown = (event: any) => {
         const keyCode = event.which;
 
-        if ((keyCode === 32 || keyCode === 83) && this.groundItem) {
+        if ((keyCode === 32) && this.groundItem) {
             this.speedMoveY = JUMP_POWER;
 
             let val = JSON.parse(localStorage.getItem('position') || '[]');
@@ -37,7 +37,7 @@ class Player {
 
             this.groundItem = undefined;
             this.isJumpEnd = false;
-        }
+        } 
     };
 
     private initKeyInputhanlder = () => {

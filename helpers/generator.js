@@ -3,7 +3,7 @@ const fs = require("fs");
 const data = JSON.parse(fs.readFileSync("testdata.json", "utf8"));
 
 let level = [];
-const EMPTY = false;
+const EMPTY = true;
 
 for (let index = 0; index < 1000; index++) {
   if (EMPTY) {
